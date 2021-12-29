@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "dancing";
+  src: url("../../assets/fonts/Waterfall-Regular.ttf") format("truetype");
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+ion-list{
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+ion-checkbox {
+  --transition: 0.5s;
+  --size:27px;
+  --border-radius:100%;
+  --background: transparent;
+  --background-checked: transparent;
+  --border-style:dotted;
+  --checkmark-color:green;
+  --border-width:1px;
+  --checkmark-width:4px;
+}
+
+.date-selector{
+  text-align: center;
+}
+
+.totals-list{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  color: grey;
+}
+
+.fooday{
+  height: 50px;
+}

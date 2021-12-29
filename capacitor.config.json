@@ -1,0 +1,6 @@
+{
+  "appId": "com.Nutripocket.app",
+  "appName": "Nutripocket",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

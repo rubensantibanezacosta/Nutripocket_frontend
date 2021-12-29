@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dieta diaria
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="false">
+  <!-- Days -->
+  <ion-item class="date-selector" collapse="fade" lines="none">
+    <ion-button fill="default" shape="round"><ion-icon size="large" name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-title size="small">Lunes, 20 de octubre</ion-title>
+    <ion-button fill="default" shape="round"><ion-icon size="large" name="chevron-forward-outline"></ion-icon></ion-button>
+  </ion-item>
+
+
+  <ion-list>
+    <!-- Dishes -->
+    <ion-item class="card-title-item" lines="none" color="warning" class="fooday" shape="round">
+      <ion-title color="light" >Desayuno</ion-title>
+      <ion-button size="medium" color="light" fill="outline" shape="round">
+        <ion-icon size="medium" name="repeat-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item class="card-title-item">
+      <ion-label >
+        <p class="totals-list">
+          <span>800Kcal</span><span>P: 100g</span><span>C: 80g</span><span>G: 30g</span>
+        </p>
+      </ion-label>
+
+    </ion-item>
+    <!-- Item -->
+    <!-- Multi-line sliding item with icon options on both sides -->
+    <ion-item-sliding class="ion-activatable ripple-parent">
+      <ion-item>
+        <ion-label>
+          <h3>Pechuga de pollo sin piel</h3>
+          <p color="medium">70Kcal</p>
+        </ion-label>
+        <ion-label slot="end"><b>50g</b></ion-label>
+        <ion-ripple-effect>
+        </ion-ripple-effect>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash">
+          </ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    
+    <ion-item lines="none">
+      <ion-button fill="default" color="secondary" size="medium">
+        <ion-icon size="medium" name="add-outline"></ion-icon>
+        <ion-label>Añadir alimento</ion-label>
+      </ion-button>
+      <ion-checkbox color="light" slot="end"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
