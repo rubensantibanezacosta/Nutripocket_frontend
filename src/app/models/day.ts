@@ -1,5 +1,8 @@
+import { Dish } from "./dish";
+
 export class Day {
     id: number;
     date: Date;
-    weekid: number;
+    useremail:string;
+    dishes:Dish[];
 }

@@ -1,0 +1,59 @@
+<ion-content>
+
+  <div class="presentation-container">
+    <div class="darken-filter">
+      <figure>
+        <img src="../../../assets/icon/white-logo.png" alt="Nutripocket logo">
+      </figure>
+      <h3 color="dark">Tu nutricionista de bolsillo</h3>
+    </div>
+  </div>
+
+
+  <form (ngSubmit)="login()" #userForm="ngForm" >
+
+    <ion-item>
+      <ion-label position="floating" color="medium">
+        Email
+      </ion-label>
+      <ion-input type="text" autocomplete="email" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+ <!--    <div  *ngIf="email.invalid && email.dirty">
+      <div class="warn" *ngIf="email.errors?.required">Campo requerido</div>
+  </div>
+ -->
+    <ion-item>
+      <ion-label position="floating" color="medium">
+        Contraseña
+      </ion-label>
+      <ion-input type="password" autocomplete="password"  [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+  <!--   <div class="warn" *ngIf="password.invalid && password.dirty">
+      <div  *ngIf="password.errors?.required">Campo requerido</div>
+      <div  *ngIf="password.errors?.minlength">Mínimo 4 caracteres</div>
+  </div> -->
+
+    <ion-button type="submit" color="warning" expand="full" size="medium" [disabled]="!userForm.form.valid">
+      <ion-text color="light" class="text-shadow">Iniciar sesión</ion-text>
+    </ion-button>
+
+  </form>
+
+
+  <ion-button expand="full" size="medium" color="light">
+    <ion-label color="medium">Iniciar sesión con Google</ion-label>
+    <ion-icon color="medium" name="logo-google" slot="start"></ion-icon>
+  </ion-button>
+
+
+
+  <ion-button expand="full" size="medium" color="light" fill="outline">
+    <ion-label color="medium">¿Eres nuevo? Regístrate!</ion-label>
+  </ion-button>
+
+  <ion-item lines="none" class="footer">
+    <a href="">Aviso Legal</a>
+  </ion-item>
+
+</ion-content>
+

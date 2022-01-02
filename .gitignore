@@ -33,3 +33,4 @@ npm-debug.log*
 /.angular
 /ios
 /e2e
+config.ts
