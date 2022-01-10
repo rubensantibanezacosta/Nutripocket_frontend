@@ -31,5 +31,111 @@
 }
 
 * {
-  font-family: UbuntuMedium;
+  font-family: sans-serif;
 }
+
+
+ion-title{
+  font-size: 1rem !important;
+}
+
+
+
+//animations
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pushToDelete {
+  0% {
+    transform:scale(1)
+  }
+  100% {
+    transform:scale(0) ;
+  }
+}
+
+@keyframes deleteToLeft {
+  30% {
+    transform:translateX(-150vw) ;
+    margin-bottom:0;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom:-100%;
+  }
+}
+
+@keyframes appearScalingY {
+  0% {
+    transform:scaleY(0);
+    opacity:0;
+    margin-bottom: 0%;
+  }
+  100% {
+    transform:scaleY(1);
+    opacity:1;
+    margin-bottom: 100%;
+  }
+}
+
+@keyframes dissAppearScalingY {
+ 
+  0% {
+    transform:scaleY(1);
+    opacity:1;
+    margin-bottom: 100%;
+  }
+  100% {
+    transform:scaleY(0);
+    opacity:0;
+    margin-bottom: 0%;
+  }
+}
+
+@keyframes appear {
+ 
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+
+@keyframes dissappear {
+ 
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+
+  }
+}
+

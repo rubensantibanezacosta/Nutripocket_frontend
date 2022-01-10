@@ -1,6 +1,7 @@
 export class Evolution {
     id: number;
     useremail: string;
+    caloriesburned:number;
     calreq: number;
     proteinreq: number;
     carbreq: number;

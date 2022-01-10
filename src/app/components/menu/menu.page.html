@@ -1,28 +1,24 @@
 <ion-split-pane contentId="content">
-  <ion-menu contentId="content" side="start" type="push">
+  <ion-menu contentId="content" side="start">
     <ion-header>
       <ion-toolbar color="light">
         <figure>
           <img src="../../../assets/icon/black-logo.png" alt="Logo Nutripocket">
         </figure>
-        <ion-buttons slot="end">
-          <ion-button icon-only size="large" (click)="closeMenu()">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-list *ngFor="let menuItem of menuItems">
-        <ion-item lines="none">
+      <ion-list>
+        <ion-item *ngFor="let menuItem of menuItems" routerLinkActive="/{{menuItem.url}}"
+          routerLink="/{{menuItem.url}}">
           <ion-icon *ngIf="menuItem.icon" name="{{menuItem.icon}}" slot="start"></ion-icon>
           {{menuItem.name}}
         </ion-item>
+   <!--      <ion-item (click)="logout()">
+          <ion-icon name="log-out" slot="start"></ion-icon>
+          Cerrar cuenta
+        </ion-item> -->
       </ion-list>
-      <ion-item lines="none" (click)="logout()">
-        <ion-icon name="log-out-outline" slot="start"></ion-icon>
-        Cerrar sesión
-      </ion-item>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="content" main></ion-router-outlet>

@@ -1,0 +1,37 @@
+section {
+  width: 90%;
+  border-radius: 6px;
+
+ 
+  color: var(--ion-color-medium);
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+tr {
+  box-sizing: border-box;
+}
+
+.second-child{
+    border-top: 5px solid var(--ion-color-medium);
+}
+td {
+  padding: 0 10px;
+  font-size: 0.9rem;
+}
+
+ion-checkbox{
+    --background:transparent;
+    --background-checked:transparent;
+    --border-style:none;
+    --checkmark-color:var(--ion-color-success);
+    --checkmark-width: 5px;
+    --checkmark-size: 24px;
+    --transition:"1.5s";
+    opacity: 1 !important;
+}

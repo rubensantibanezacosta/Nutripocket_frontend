@@ -1,59 +1,78 @@
 <ion-content>
 
-  <div class="presentation-container">
+  <!--  <div class="presentation-container">
     <div class="darken-filter">
       <figure>
         <img src="../../../assets/icon/white-logo.png" alt="Nutripocket logo">
       </figure>
       <h3 color="dark">Tu nutricionista de bolsillo</h3>
     </div>
-  </div>
-
-
-  <form (ngSubmit)="login()" #userForm="ngForm" >
-
-    <ion-item>
-      <ion-label position="floating" color="medium">
-        Email
-      </ion-label>
-      <ion-input type="text" autocomplete="email" [(ngModel)]="email" name="email"></ion-input>
-    </ion-item>
- <!--    <div  *ngIf="email.invalid && email.dirty">
-      <div class="warn" *ngIf="email.errors?.required">Campo requerido</div>
-  </div>
- -->
-    <ion-item>
-      <ion-label position="floating" color="medium">
-        Contraseña
-      </ion-label>
-      <ion-input type="password" autocomplete="password"  [(ngModel)]="password" name="password"></ion-input>
-    </ion-item>
-  <!--   <div class="warn" *ngIf="password.invalid && password.dirty">
-      <div  *ngIf="password.errors?.required">Campo requerido</div>
-      <div  *ngIf="password.errors?.minlength">Mínimo 4 caracteres</div>
   </div> -->
 
-    <ion-button type="submit" color="warning" expand="full" size="medium" [disabled]="!userForm.form.valid">
-      <ion-text color="light" class="text-shadow">Iniciar sesión</ion-text>
-    </ion-button>
+  <div>
+    <form (ngSubmit)="login(loginForm.value)" [formGroup]="loginForm" class="ion-padding">
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Email
+        </ion-label>
+        <ion-input type="text" autocomplete="email" name="email" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.email">
+          <div class="alert" *ngIf="loginForm.get('email').hasError(validation.type) && loginForm.get('email').dirty">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
-  </form>
+      <ion-item>
+        <ion-button slot="end" icon-only size="small" fill="default" *ngIf="passwordFormat=='text'"
+          (click)="passwordToggle()">
+          <ion-icon color="medium" name="eye-outline"></ion-icon>
+        </ion-button>
+        <ion-button slot="end" icon-only size="small" fill="default" *ngIf="passwordFormat!='text'"
+          (click)="passwordToggle()">
+          <ion-icon color="medium" name="eye-off-outline"></ion-icon>
+        </ion-button>
+
+        <ion-label position="floating" color="medium">
+          Contraseña
+        </ion-label>
+        <ion-input type="{{passwordFormat}}" autocomplete="password" name="password" formControlName="password">
+        </ion-input>
+      </ion-item>
+
+      <ng-container *ngFor="let validation of validationMessages.password">
+        <div class="alert"
+          *ngIf="loginForm.get('password').hasError(validation.type) && loginForm.get('password').dirty">
+          {{validation.message}}
+        </div>
+      </ng-container>
+
+      <ion-button class="ion-padding" type="submit" color="warning" expand="full" size="medium"
+        [disabled]="!loginForm.valid" shape="round">
+        <ion-text color="light" class="text-shadow">Iniciar sesión</ion-text>
+      </ion-button>
 
 
-  <ion-button expand="full" size="medium" color="light">
-    <ion-label color="medium">Iniciar sesión con Google</ion-label>
-    <ion-icon color="medium" name="logo-google" slot="start"></ion-icon>
-  </ion-button>
+
+
+      <ion-button class="ion-padding" expand="full" size="medium" color="light" shape="round">
+        <ion-label color="medium">Iniciar sesión con Google</ion-label>
+        <ion-icon color="medium" name="logo-google" slot="start"></ion-icon>
+      </ion-button>
 
 
 
-  <ion-button expand="full" size="medium" color="light" fill="outline">
-    <ion-label color="medium">¿Eres nuevo? Regístrate!</ion-label>
-  </ion-button>
+      <ion-button class="ion-padding" expand="full" size="medium" color="light" fill="outline" shape="round">
+        <ion-label color="medium">¿Eres nuevo? Regístrate!</ion-label>
+      </ion-button>
+    </form>
+  </div>
 
   <ion-item lines="none" class="footer">
     <a href="">Aviso Legal</a>
   </ion-item>
 
-</ion-content>
 
+</ion-content>

@@ -16,7 +16,7 @@ import { ComponentModule } from 'src/app/components/component/component.module';
     IonicModule,
     HomePageRoutingModule,
     ComponentModule,
-    HammerModule
+    HammerModule,
   ],
   declarations: [HomePage]
 })

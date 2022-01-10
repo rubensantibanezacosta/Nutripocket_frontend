@@ -10,18 +10,26 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuPage {
   menuItems = [
-    {
-      name: "Diario",
-      icon: "calendar-clear-outline",
-      url: "/home"
-    },
+    
     {
       name: "Configuración",
-      icon: "cog-outline",
-      url: "",
+      icon: "settings",
+      url: "menu/config",
+    },
+    {
+      name: "Diario",
+      icon: "calendar-number",
+      url: "menu/home"
+    },
+    {
+      name: "Cesta de la compra",
+      icon: "cart",
+      url: "menu/cart"
     },
   ]
-  constructor(private menuController: MenuController, private router: Router, private loginService:LoginService) { }
+  constructor(private menuController: MenuController, private router: Router, private loginService: LoginService) {
+    this.menuController.close();
+  }
 
 
 
@@ -31,6 +39,8 @@ export class MenuPage {
 
 
   logout() {
-    this.loginService.logout();
+    this.loginService.logout().then(() => {
+      this.router.navigateByUrl("login");
+    });
   }
 }

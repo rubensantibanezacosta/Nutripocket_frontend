@@ -17,7 +17,7 @@ export class TokenService {
    this.storage.create();
   }
 
-  getData(dataName:string){
+  async getData(dataName:string){
     return this.storage.get(dataName);
   }
 

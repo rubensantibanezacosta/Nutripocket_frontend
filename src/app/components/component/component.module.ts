@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HammerModule } from '@angular/platform-browser';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonPopover } from '@ionic/angular';
 
 
 
@@ -12,7 +12,8 @@ import { IonicModule } from '@ionic/angular';
     CommonModule,
     FormsModule,
     IonicModule,
-HammerModule
+HammerModule,
+
   ],
   exports:[],
 })

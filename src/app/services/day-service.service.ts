@@ -1,3 +1,4 @@
+import { FoodService } from 'src/app/services/food.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -13,7 +14,7 @@ export class DayServiceService {
   token="";
   endpoint=environment.apiUrl+"/api/day";
   httpOptions :any;
-  constructor(private httpClient: HttpClient, private tokenService:TokenService) { 
+  constructor(private httpClient: HttpClient, private tokenService:TokenService, private foodService: FoodService) { 
  
     this.getData().then(()=>{
       this.httpOptions={
@@ -23,7 +24,6 @@ export class DayServiceService {
         )
       };
     });
-  
   }
 
 
@@ -36,12 +36,20 @@ export class DayServiceService {
     return this.httpClient.post<any>(this.endpoint,JSON.stringify(day), this.httpOptions)
   }
 
-  generate(email:string):Observable<any>{
-    return this.httpClient.post(this.endpoint,JSON.stringify(email), this.httpOptions)
+  generateWeek():Observable<any>{
+    return this.httpClient.get(this.endpoint+"/generateweek", this.httpOptions)
+  }
+
+  regenerateDay(date:Date):Observable<any>{
+    return this.httpClient.get(this.endpoint+"/regenerateday/"+date, this.httpOptions)
   }
 
   findDayById(id:number):Observable<any>{
     return this.httpClient.get<any>(this.endpoint+"/id/"+id, this.httpOptions)
+  }
+
+  updateDay(id:number, day:Day):Observable<any>{
+    return this.httpClient.put<any>(this.endpoint+"/"+id,JSON.stringify(day), this.httpOptions)
   }
 
 

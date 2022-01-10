@@ -16,6 +16,24 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./components/menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'add-item-modal',
+    loadChildren: () => import('./pages/home/add-item-modal/add-item-modal.module').then( m => m.AddItemModalPageModule)
+  },
+  {
+    path: 'add-item-popover',
+    loadChildren: () => import('./pages/home/add-item-modal/add-item-popover/add-item-popover.module').then( m => m.AddItemPopoverPageModule)
+  },
+  {
+    path: 'add-new-food',
+    loadChildren: () => import('./pages/home/add-item-modal/add-new-food/add-new-food.module').then( m => m.AddNewFoodPageModule)
+  },
+
+  {
+    path: 'popover',
+    loadChildren: () => import('./components/popover/popover.module').then( m => m.PopoverPageModule)
+  },
+
 
 ];
 
