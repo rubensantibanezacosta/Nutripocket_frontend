@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-menu-button side="start" color="medium"></ion-menu-button>
+      <ion-menu-button side="start" color="secondary"></ion-menu-button>
     </ion-buttons>
     <ion-title color="dark">
       <span class="calendar-icon">
@@ -35,7 +35,7 @@
 
 
   <!-- Days -->
-  <ion-item class="date-selector" collapse="fade" lines="none">
+  <ion-item class="date-selector" collapse="fade" lines="none" mode="md">
     <ion-button (click)="previousDate()" fill="default">
       <ion-icon size="medium" name="chevron-back-outline" color="secondary"></ion-icon>
     </ion-button>
@@ -45,15 +45,11 @@
     </ion-button>
   </ion-item>
   <ion-toolbar class="ion-padding" mode="md" >
-    <ion-button color="secondary" expand="block" (click)="regenerateDay()" class="ion-text-center" shape="round" size="medium">
-      <ion-label color="light" class="ion-text-center" size="medium" >Recalcular día</ion-label>
+    <ion-button color="secondary" expand="block" (click)="regenerateDay()" class="ion-text-center big-buttons" shape="round" size="medium">
+      <ion-label color="light" class="ion-text-center " size="medium">Recalcular día</ion-label>
       <ion-icon slot="end" size="medium" name="repeat-outline" color="light"></ion-icon>
     </ion-button>
   </ion-toolbar>
-
-
-
-
 
 
   <ion-list *ngFor="let dayfood of dayFoods; let i=index;" class="ion-padding">

@@ -33,7 +33,8 @@ const routes: Routes = [
     path: 'popover',
     loadChildren: () => import('./components/popover/popover.module').then( m => m.PopoverPageModule)
   },
-
+ 
+  
 
 ];
 

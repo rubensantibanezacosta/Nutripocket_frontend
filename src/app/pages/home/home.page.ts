@@ -37,7 +37,9 @@ export class HomePage {
     private evolutionService: EvolutionService,
     private modalController: ModalController,
     private loadingController: LoadingController,
-    private popoverController: PopoverController) { }
+    private popoverController: PopoverController,) {
+    
+  }
   dayFoods = [
     {
       dayFood: "Desayuno",
@@ -282,9 +284,9 @@ export class HomePage {
         message: "Se borrará el dia actual. ¿Deseas continuar?"
       },
       showBackdrop: true,
-      size:"cover",
-      animated:true,
-      backdropDismiss:true,
+      size: "cover",
+      animated: true,
+      backdropDismiss: true,
     })
     confirm.onDidDismiss().then((response) => {
       if (response.data === true) {
@@ -337,9 +339,9 @@ export class HomePage {
         message: "Se borrará el día de hoy y los posteriores. ¿Deseas continuar?"
       },
       showBackdrop: true,
-      size:"cover",
-      animated:true,
-      backdropDismiss:true,
+      size: "cover",
+      animated: true,
+      backdropDismiss: true,
     })
     confirm.onDidDismiss().then((response) => {
       if (response.data === true) {
@@ -362,8 +364,8 @@ export class HomePage {
   async loading(message) {
     const loading = await this.loadingController.create({
       message,
-      mode:"ios",
-      spinner:"crescent",
+      mode: "ios",
+      spinner: "crescent",
     });
     await loading.present();
   }

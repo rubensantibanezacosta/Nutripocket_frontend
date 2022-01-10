@@ -21,7 +21,7 @@
     <ion-input type="number"  min="0" (change)="setDose(this.doseInput)" (keyup)="setDose(this.doseInput)" value="{{dosex*food.doseg || undefined}}" #doseInput placeholder="g"></ion-input>
   </ion-item>
 
-      <ion-button color="secondary" id="validateButton" size="medium" (click)="closePopover(true)" expand="full" shape="round">
+      <ion-button class="big-buttons" color="secondary" id="validateButton" size="medium" (click)="closePopover(true)" expand="full" shape="round">
         <ion-label color="light">Guardar </ion-label>
         <ion-icon color="light" name="checkmark-done" size="medium"></ion-icon>
       </ion-button>

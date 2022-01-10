@@ -26,6 +26,11 @@ export class MenuPage {
       icon: "cart",
       url: "menu/cart"
     },
+    {
+      name: "Administración",
+      icon: "shield",
+      url: "menu/admin",
+    },
   ]
   constructor(private menuController: MenuController, private router: Router, private loginService: LoginService) {
     this.menuController.close();
