@@ -6,8 +6,8 @@ import { AddNewFoodPage } from './add-new-food.page';
 const routes: Routes = [
   {
     path: '',
-    component: AddNewFoodPage
-  }
+    component: AddNewFoodPage,
+  },
 ];
 
 @NgModule({

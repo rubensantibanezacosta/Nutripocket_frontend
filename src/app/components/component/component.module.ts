@@ -4,17 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HammerModule } from '@angular/platform-browser';
 import { IonicModule, IonPopover } from '@ionic/angular';
 
-
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-HammerModule,
-
-  ],
-  exports:[],
+  imports: [CommonModule, FormsModule, IonicModule, HammerModule],
+  exports: [],
 })
-export class ComponentModule { }
+export class ComponentModule {}

@@ -9,12 +9,7 @@ import { ConfigPageRoutingModule } from './config-routing.module';
 import { ConfigPage } from './config.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ConfigPageRoutingModule
-  ],
-  declarations: [ConfigPage]
+  imports: [CommonModule, FormsModule, IonicModule, ConfigPageRoutingModule],
+  declarations: [ConfigPage],
 })
 export class ConfigPageModule {}

@@ -1,5 +1,5 @@
 export class Dayfood {
-    id: number;
-    name: string;
-    nombre: string;
+  id: number;
+  name: string;
+  nombre: string;
 }

@@ -1,6 +1,5 @@
 import { PopoverPageModule } from './components/popover/popover.module';
 
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -18,26 +17,25 @@ import { AddItemModalPageModule } from './pages/home/add-item-modal/add-item-mod
 import { AddItemPopoverPageModule } from './pages/home/add-item-modal/add-item-popover/add-item-popover.module';
 import { AddNewFoodPageRoutingModule } from './pages/home/add-item-modal/add-new-food/add-new-food-routing.module';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    HttpClientModule, 
-    ComponentModule, 
-    HammerModule, 
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    ComponentModule,
+    HammerModule,
     IonicStorageModule.forRoot(),
-    FormsModule, 
-    ReactiveFormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     AddItemModalPageModule,
     AddItemPopoverPageModule,
     AddNewFoodPageRoutingModule,
-    PopoverPageModule
+    PopoverPageModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,16 +6,20 @@ import { ConfigPage } from './config.page';
 const routes: Routes = [
   {
     path: '',
-    component: ConfigPage
+    component: ConfigPage,
   },
   {
     path: 'account',
-    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountPageModule),
   },
   {
     path: 'preferences',
-    loadChildren: () => import('./preferences/preferences.module').then( m => m.PreferencesPageModule)
-  }
+    loadChildren: () =>
+      import('./preferences/preferences.module').then(
+        (m) => m.PreferencesPageModule
+      ),
+  },
 ];
 
 @NgModule({

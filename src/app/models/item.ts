@@ -1,8 +1,8 @@
-import { Food } from "./food";
+import { Food } from './food';
 
 export class Item {
-    id: number;
-    dosex: number;
-    dishid: number;
-    food:Food;
+  id: number;
+  dosex: number;
+  dishid: number;
+  food: Food;
 }

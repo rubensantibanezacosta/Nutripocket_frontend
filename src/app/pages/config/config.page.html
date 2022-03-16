@@ -5,7 +5,11 @@
     </ion-buttons>
     <ion-title color="dark">
       <span class="calendar-icon">
-        <ion-icon name="settings-outline" size="medium" color="medium"></ion-icon>
+        <ion-icon
+          name="settings-outline"
+          size="medium"
+          color="medium"
+        ></ion-icon>
       </span>
       Configuración
     </ion-title>
@@ -13,27 +17,36 @@
 </ion-header>
 
 <ion-content>
-<ion-list>
-  <ion-item>
-    <ion-icon name="person-circle-outline" slot="start" color="medium"></ion-icon>
-    <ion-text>Cuenta</ion-text> 
-  </ion-item>
-  <ion-item>
-    <ion-icon name="settings-outline" slot="start" color="medium"></ion-icon>
-    <ion-text>Preferencias</ion-text>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="play-outline" slot="start" color="medium"></ion-icon>
-    <ion-text>Ver tutorial</ion-text>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="easel-outline" slot="start" color="medium"></ion-icon>
-    <ion-label>Modo oscuro</ion-label>
-    <ion-select lines="none" value="device" [(ngModel)]="darktheme" (ngModelChange)="setDarkTheme($event)">
-      <ion-select-option value="light">Claro</ion-select-option>
-      <ion-select-option value="dark">Oscuro</ion-select-option>
-      <ion-select-option value="device">Dispositivo</ion-select-option>
-    </ion-select>
-  </ion-item>
-</ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-icon
+        name="person-circle-outline"
+        slot="start"
+        color="medium"
+      ></ion-icon>
+      <ion-text>Cuenta</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="settings-outline" slot="start" color="medium"></ion-icon>
+      <ion-text>Preferencias</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="play-outline" slot="start" color="medium"></ion-icon>
+      <ion-text>Ver tutorial</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="easel-outline" slot="start" color="medium"></ion-icon>
+      <ion-label>Modo oscuro</ion-label>
+      <ion-select
+        lines="none"
+        value="device"
+        [(ngModel)]="darktheme"
+        (ngModelChange)="setDarkTheme($event)"
+      >
+        <ion-select-option value="light">Claro</ion-select-option>
+        <ion-select-option value="dark">Oscuro</ion-select-option>
+        <ion-select-option value="device">Dispositivo</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -6,8 +6,8 @@ import { AddItemPopoverPage } from './add-item-popover.page';
 const routes: Routes = [
   {
     path: '',
-    component: AddItemPopoverPage
-  }
+    component: AddItemPopoverPage,
+  },
 ];
 
 @NgModule({

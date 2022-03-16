@@ -1,6 +1,6 @@
 export class Macros {
-    id: number;
-    recipetype: number;
-    proteinperkg: number;
-    fatperkg: number;
+  id: number;
+  recipetype: number;
+  proteinperkg: number;
+  fatperkg: number;
 }

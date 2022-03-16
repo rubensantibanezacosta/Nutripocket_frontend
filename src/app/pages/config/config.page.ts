@@ -8,12 +8,13 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./config.page.scss'],
 })
 export class ConfigPage {
-  darktheme = "device";
-  constructor(private darkThemeService: DarkthemeService, private tokenService: TokenService) {
-
-  }
+  darktheme = 'device';
+  constructor(
+    private darkThemeService: DarkthemeService,
+    private tokenService: TokenService
+  ) {}
   ionViewDidEnter() {
-    this.getDarkTheme()
+    this.getDarkTheme();
   }
   setDarkTheme(value) {
     this.darkThemeService.setDarkMode(value).then(() => {
@@ -23,6 +24,6 @@ export class ConfigPage {
 
   async getDarkTheme() {
     const darkmode = await this.darkThemeService.getDarkMode();
-    darkmode ? this.darktheme = darkmode : null;
+    darkmode ? (this.darktheme = darkmode) : null;
   }
 }

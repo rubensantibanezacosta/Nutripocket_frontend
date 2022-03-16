@@ -18,6 +18,6 @@ import { AddItemModalPage } from './add-item-modal.page';
     AddItemModalPageRoutingModule,
     AddNewFoodPageRoutingModule,
   ],
-  declarations: [AddItemModalPage]
+  declarations: [AddItemModalPage],
 })
 export class AddItemModalPageModule {}

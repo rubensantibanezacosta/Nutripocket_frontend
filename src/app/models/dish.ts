@@ -1,7 +1,7 @@
-import { Item } from "./item";
+import { Item } from './item';
 
 export class Dish {
-    id: number;
-    dayid: number;
-    items: Item[];
+  id: number;
+  dayid: number;
+  items: Item[];
 }

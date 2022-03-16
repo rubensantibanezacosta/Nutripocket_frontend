@@ -6,38 +6,40 @@ import { Router } from '@angular/router';
 import { TokenService } from './token.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-  token: string = "";
-  endpoint = environment.apiUrl + "/api/auth";
+  token: string = '';
+  endpoint = environment.apiUrl + '/api/auth';
 
-
-  constructor(private httpClient: HttpClient, private router: Router, private tokenService: TokenService) {
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private tokenService: TokenService
+  ) {
     this.getData();
   }
 
-
   async getData() {
-    this.token = await this.tokenService.getData("NP_token");
+    this.token = await this.tokenService.getData('NP_token');
   }
-
-
 
   login(username: string, password: string): Observable<any> {
     let authorizationData = 'Basic ' + btoa(username + ':' + password);
     const httpOptionsBasic = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': authorizationData
+        Authorization: authorizationData,
       }),
-    }
-    return this.httpClient.post<any>(this.endpoint + "/sign-in", {}, httpOptionsBasic)
-
+    };
+    return this.httpClient.post<any>(
+      this.endpoint + '/sign-in',
+      {},
+      httpOptionsBasic
+    );
   }
 
   logout() {
-    return this.tokenService.removeItem("NP_token")
+    return this.tokenService.removeItem('NP_token');
   }
-
 }

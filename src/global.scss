@@ -34,12 +34,11 @@
   font-family: sans-serif;
 }
 
-
-ion-title{
+ion-title {
   font-size: 1rem !important;
 }
 
-.big-buttons{
+.big-buttons {
   padding: 0 60px !important;
 }
 
@@ -74,70 +73,64 @@ ion-title{
 
 @keyframes pushToDelete {
   0% {
-    transform:scale(1)
+    transform: scale(1);
   }
   100% {
-    transform:scale(0) ;
+    transform: scale(0);
   }
 }
 
 @keyframes deleteToLeft {
   30% {
-    transform:translateX(-150vw) ;
-    margin-bottom:0;
+    transform: translateX(-150vw);
+    margin-bottom: 0;
   }
   100% {
     opacity: 0;
-    margin-bottom:-100%;
+    margin-bottom: -100%;
   }
 }
 
 @keyframes appearScalingY {
   0% {
-    transform:scaleY(0);
-    opacity:0;
+    transform: scaleY(0);
+    opacity: 0;
     margin-bottom: 0%;
   }
   100% {
-    transform:scaleY(1);
-    opacity:1;
+    transform: scaleY(1);
+    opacity: 1;
     margin-bottom: 100%;
   }
 }
 
 @keyframes dissAppearScalingY {
- 
   0% {
-    transform:scaleY(1);
-    opacity:1;
+    transform: scaleY(1);
+    opacity: 1;
     margin-bottom: 100%;
   }
   100% {
-    transform:scaleY(0);
-    opacity:0;
+    transform: scaleY(0);
+    opacity: 0;
     margin-bottom: 0%;
   }
 }
 
 @keyframes appear {
- 
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
-
 
 @keyframes dissappear {
- 
   0% {
-    opacity:1;
+    opacity: 1;
   }
   100% {
-    opacity:0;
-
+    opacity: 0;
   }
 }
-

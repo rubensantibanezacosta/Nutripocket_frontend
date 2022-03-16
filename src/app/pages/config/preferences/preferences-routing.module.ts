@@ -6,8 +6,8 @@ import { PreferencesPage } from './preferences.page';
 const routes: Routes = [
   {
     path: '',
-    component: PreferencesPage
-  }
+    component: PreferencesPage,
+  },
 ];
 
 @NgModule({

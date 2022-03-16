@@ -1,12 +1,21 @@
 <ion-header>
   <ion-toolbar>
-
     <ion-text>
       <div class="ion-text-capitalize">Nuevo alimento</div>
     </ion-text>
     <ion-buttons slot="start">
-      <ion-button icon-only (click)="false" fill="default" (click)="closePopover()">
-        <ion-icon ios="chevron-back" md="close-outline" size="small" color="dark">
+      <ion-button
+        icon-only
+        (click)="false"
+        fill="default"
+        (click)="closePopover()"
+      >
+        <ion-icon
+          ios="chevron-back"
+          md="close-outline"
+          size="small"
+          color="dark"
+        >
         </ion-icon>
       </ion-button>
     </ion-buttons>
@@ -14,177 +23,234 @@
 </ion-header>
 
 <ion-content>
-
   <div>
-    <form (ngSubmit)="saveFood(newFoodForm.value)" [formGroup]="newFoodForm" class="ion-padding">
-
-<!-- name -->
+    <form
+      (ngSubmit)="saveFood(newFoodForm.value)"
+      [formGroup]="newFoodForm"
+      class="ion-padding"
+    >
+      <!-- name -->
       <ion-item>
         <ion-label position="floating" color="medium">
-         * Nombre del alimento
+          * Nombre del alimento
         </ion-label>
         <ion-input type="text" name="name" formControlName="name"></ion-input>
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validationMessages.name">
-          <div class="alert ion-text-center" *ngIf="newFoodForm.get('name').hasError(validation.type) && newFoodForm.get('name').dirty">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('name').hasError(validation.type) && newFoodForm.get('name').dirty"
+          >
             {{validation.message}}
           </div>
         </ng-container>
       </div>
 
-<!-- Calories -->
+      <!-- Calories -->
       <ion-item>
-        <ion-label position="floating" color="medium">
-        *  Calorias 
-        </ion-label>
-        <ion-input type="number" name="calories100g" formControlName="calories100g" placeholder="kcal / 100g">
-          </ion-input>
-          
+        <ion-label position="floating" color="medium"> * Calorias </ion-label>
+        <ion-input
+          type="number"
+          name="calories100g"
+          formControlName="calories100g"
+          placeholder="kcal / 100g"
+        >
+        </ion-input>
       </ion-item>
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validationMessages.calories100g">
-          <div class="alert ion-text-center"
-            *ngIf="newFoodForm.get('calories100g').hasError(validation.type) && newFoodForm.get('calories100g').dirty">
+        <ng-container
+          *ngFor="let validation of validationMessages.calories100g"
+        >
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('calories100g').hasError(validation.type) && newFoodForm.get('calories100g').dirty"
+          >
             {{validation.message}}
           </div>
         </ng-container>
       </div>
 
-<!-- Protein -->
+      <!-- Protein -->
       <ion-item>
-        <ion-label position="floating" color="medium">
-        *  Proteina
-        </ion-label>
-        <ion-input type="number" name="protein100g" formControlName="protein100g" placeholder="g / 100g"></ion-input>
+        <ion-label position="floating" color="medium"> * Proteina </ion-label>
+        <ion-input
+          type="number"
+          name="protein100g"
+          formControlName="protein100g"
+          placeholder="g / 100g"
+        ></ion-input>
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validationMessages.protein100g">
-          <div class="alert ion-text-center"
-            *ngIf="newFoodForm.get('protein100g').hasError(validation.type) && newFoodForm.get('protein100g').dirty">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('protein100g').hasError(validation.type) && newFoodForm.get('protein100g').dirty"
+          >
             {{validation.message}}
           </div>
         </ng-container>
       </div>
 
-<!-- Carbs -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-   * Carbohidratos
-  </ion-label>
-  <ion-input type="number" name="carbs100g" formControlName="carbs100g" placeholder="g / 100g"></ion-input>
-</ion-item>
-<div class="validation-errors">
-  <ng-container *ngFor="let validation of validationMessages.carbs100g">
-    <div class="alert ion-text-center"
-      *ngIf="newFoodForm.get('carbs100g').hasError(validation.type) && newFoodForm.get('carbs100g').dirty">
-      {{validation.message}}
-    </div>
-  </ng-container>
-</div>
+      <!-- Carbs -->
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          * Carbohidratos
+        </ion-label>
+        <ion-input
+          type="number"
+          name="carbs100g"
+          formControlName="carbs100g"
+          placeholder="g / 100g"
+        ></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.carbs100g">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('carbs100g').hasError(validation.type) && newFoodForm.get('carbs100g').dirty"
+          >
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
-<!-- Sugar -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-  *  Azúcar
-  </ion-label>
-  <ion-input type="number" name="sugar100g" formControlName="sugar100g" placeholder="g / 100g"></ion-input>
-</ion-item>
-<div class="validation-errors">
-  <ng-container *ngFor="let validation of validationMessages.sugar100g">
-    <div class="alert ion-text-center"
-      *ngIf="newFoodForm.get('sugar100g').hasError(validation.type) && newFoodForm.get('sugar100g').dirty">
-      {{validation.message}}
-    </div>
-  </ng-container>
-</div>
+      <!-- Sugar -->
+      <ion-item>
+        <ion-label position="floating" color="medium"> * Azúcar </ion-label>
+        <ion-input
+          type="number"
+          name="sugar100g"
+          formControlName="sugar100g"
+          placeholder="g / 100g"
+        ></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.sugar100g">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('sugar100g').hasError(validation.type) && newFoodForm.get('sugar100g').dirty"
+          >
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
-<!-- Fat -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-  *  Grasa
-  </ion-label>
-  <ion-input type="number" name="fat100g" formControlName="fat100g" placeholder="g / 100g"></ion-input>
-</ion-item>
-<div class="validation-errors">
-  <ng-container *ngFor="let validation of validationMessages.fat100g">
-    <div class="alert ion-text-center"
-      *ngIf="newFoodForm.get('fat100g').hasError(validation.type) && newFoodForm.get('fat100g').dirty">
-      {{validation.message}}
-    </div>
-  </ng-container>
-</div>
+      <!-- Fat -->
+      <ion-item>
+        <ion-label position="floating" color="medium"> * Grasa </ion-label>
+        <ion-input
+          type="number"
+          name="fat100g"
+          formControlName="fat100g"
+          placeholder="g / 100g"
+        ></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.fat100g">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('fat100g').hasError(validation.type) && newFoodForm.get('fat100g').dirty"
+          >
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
+      <!-- Saturated Fat -->
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Grasa saturada
+        </ion-label>
+        <ion-input
+          type="number"
+          name="saturatedfat100g"
+          formControlName="saturatedfat100g"
+          placeholder="g / 100g"
+        ></ion-input>
+      </ion-item>
 
-<!-- Saturated Fat -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-    Grasa saturada
-  </ion-label>
-  <ion-input type="number" name="saturatedfat100g" formControlName="saturatedfat100g" placeholder="g / 100g"></ion-input>
-</ion-item>
+      <!-- Fiber -->
+      <ion-item>
+        <ion-label position="floating" color="medium"> Fibra </ion-label>
+        <ion-input
+          type="number"
+          name="fiber100g"
+          formControlName="fiber100g"
+          placeholder="g / 100g"
+        ></ion-input>
+      </ion-item>
 
+      <!-- Salt -->
+      <ion-item>
+        <ion-label position="floating" color="medium"> Sal </ion-label>
+        <ion-input
+          type="number"
+          name="salt100g"
+          formControlName="salt100g"
+          placeholder="mg / 100g"
+        ></ion-input>
+      </ion-item>
 
-<!-- Fiber -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-    Fibra
-  </ion-label>
-  <ion-input type="number" name="fiber100g" formControlName="fiber100g" placeholder="g / 100g"></ion-input>
-</ion-item>
+      <!-- doseg -->
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          * Ración mínima
+        </ion-label>
+        <ion-input
+          type="number"
+          name="doseg"
+          formControlName="doseg"
+          placeholder="g"
+        ></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.doseg">
+          <div
+            class="alert ion-text-center"
+            *ngIf="newFoodForm.get('doseg').hasError(validation.type) && newFoodForm.get('doseg').dirty"
+          >
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
+      <!-- dose -->
+      <ion-item>
+        <ion-label position="floating" color="medium"> * Ración </ion-label>
+        <ion-input
+          type="number"
+          name="dose"
+          formControlName="dose"
+          placeholder="g"
+        >
+        </ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMessages.dose">
+          <div
+            class="alert ion-text-center ion-text-center"
+            *ngIf="newFoodForm.get('dose').hasError(validation.type) && newFoodForm.get('dose').dirty"
+          >
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
-<!-- Salt -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-   Sal
-  </ion-label>
-  <ion-input type="number" name="salt100g" formControlName="salt100g" placeholder="mg / 100g"></ion-input>
-</ion-item>
-
-
-<!-- doseg -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-  *  Ración mínima
-  </ion-label>
-  <ion-input type="number" name="doseg" formControlName="doseg" placeholder="g"></ion-input>
-</ion-item>
-<div class="validation-errors">
-  <ng-container *ngFor="let validation of validationMessages.doseg">
-    <div class="alert ion-text-center"
-      *ngIf="newFoodForm.get('doseg').hasError(validation.type) && newFoodForm.get('doseg').dirty">
-      {{validation.message}}
-    </div>
-  </ng-container>
-</div>
-
-<!-- dose -->
-<ion-item>
-  <ion-label position="floating" color="medium">
-    *  Ración
-    </ion-label>
-  <ion-input type="number" name="dose" formControlName="dose" placeholder="g">
-    
-  </ion-input>
-</ion-item>
-<div class="validation-errors">
-  <ng-container *ngFor="let validation of validationMessages.dose">
-    <div class="alert ion-text-center ion-text-center"
-      *ngIf="newFoodForm.get('dose').hasError(validation.type) && newFoodForm.get('dose').dirty">
-      {{validation.message}}
-    </div>
-  </ng-container>
-</div>
-
-
-
-      <ion-button class="ion-padding" type="submit" color="secondary" expand="full" size="medium"
-        [disabled]="!newFoodForm.valid" shape="round">
-        <ion-text class="big-buttons" color="light" class="text-shadow">Guardar</ion-text>
+      <ion-button
+        class="ion-padding"
+        type="submit"
+        color="secondary"
+        expand="full"
+        size="medium"
+        [disabled]="!newFoodForm.valid"
+        shape="round"
+      >
+        <ion-text class="big-buttons" color="light" class="text-shadow"
+          >Guardar</ion-text
+        >
         <ion-icon color="light" name="checkmark-done" size="medium"></ion-icon>
       </ion-button>
     </form>
   </div>
-
 </ion-content>

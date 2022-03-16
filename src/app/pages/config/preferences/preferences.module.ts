@@ -13,8 +13,8 @@ import { PreferencesPage } from './preferences.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PreferencesPageRoutingModule
+    PreferencesPageRoutingModule,
   ],
-  declarations: [PreferencesPage]
+  declarations: [PreferencesPage],
 })
 export class PreferencesPageModule {}

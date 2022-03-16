@@ -5,74 +5,121 @@
     </ion-buttons>
     <ion-title color="dark">
       <span class="calendar-icon">
-        <ion-icon name="calendar-number-outline" size="medium" color="medium"></ion-icon>
+        <ion-icon
+          name="calendar-number-outline"
+          size="medium"
+          color="medium"
+        ></ion-icon>
       </span>
       Diario
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="false">
-
-
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="medium">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-text class="ion-text-shadow ion-text-center" color="light" (click)="generateWeek()">Semana</ion-text>
+      <ion-text
+        class="ion-text-shadow ion-text-center"
+        color="dark"
+        (click)="generateWeek()"
+        >Semana</ion-text
+      >
       <ion-fab-button color="success" (click)="generateWeek()">
         <ion-icon name="repeat-outline" color="light"></ion-icon>
       </ion-fab-button>
-      <ion-text class="ion-text-shadow ion-text-center" color="light">Peso</ion-text>
+      <ion-text class="ion-text-shadow ion-text-center" color="dark"
+        >Peso</ion-text
+      >
       <ion-fab-button color="secondary">
         <ion-icon name="scale" color="light"></ion-icon>
       </ion-fab-button>
-
     </ion-fab-list>
   </ion-fab>
-
 
   <!-- Days -->
   <ion-item class="date-selector" collapse="fade" lines="none" mode="md">
     <ion-button (click)="previousDate()" fill="default">
-      <ion-icon size="medium" name="chevron-back-outline" color="secondary"></ion-icon>
+      <ion-icon
+        size="medium"
+        name="chevron-back-outline"
+        color="secondary"
+      ></ion-icon>
     </ion-button>
     <ion-title size="small">{{formatDate(date)}}</ion-title>
     <ion-button (click)="nextDate()" fill="default">
-      <ion-icon size="medium" name="chevron-forward-outline" color="secondary"></ion-icon>
+      <ion-icon
+        size="medium"
+        name="chevron-forward-outline"
+        color="secondary"
+      ></ion-icon>
     </ion-button>
   </ion-item>
-  <ion-toolbar class="ion-padding" mode="md" >
-    <ion-button color="secondary" expand="block" (click)="regenerateDay()" class="ion-text-center big-buttons" shape="round" size="medium">
-      <ion-label color="light" class="ion-text-center " size="medium">Recalcular día</ion-label>
-      <ion-icon slot="end" size="medium" name="repeat-outline" color="light"></ion-icon>
+  <ion-toolbar class="ion-padding" mode="md">
+    <ion-button
+      color="secondary"
+      expand="block"
+      (click)="regenerateDay()"
+      class="ion-text-center big-buttons"
+      shape="round"
+      size="medium"
+    >
+      <ion-label color="light" class="ion-text-center" size="medium"
+        >Recalcular día</ion-label
+      >
+      <ion-icon
+        slot="end"
+        size="medium"
+        name="repeat-outline"
+        color="light"
+      ></ion-icon>
     </ion-button>
   </ion-toolbar>
 
-
   <ion-list *ngFor="let dayfood of dayFoods; let i=index;" class="ion-padding">
-
     <ion-accordion-group value="foods">
-
-      <ion-item class="card-title-item" lines="none" class="fooday" shape="round" mode="md">
-        <ion-title color="dark" class="ion-text-start">{{dayfood.dayFood}}</ion-title>
-        <ion-icon slot="start" size="small" name="{{dayfood.icon}}" color="{{dayfood.color}}"></ion-icon>
+      <ion-item
+        class="card-title-item"
+        lines="none"
+        class="fooday"
+        shape="round"
+        mode="md"
+      >
+        <ion-title color="dark" class="ion-text-start"
+          >{{dayfood.dayFood}}</ion-title
+        >
+        <ion-icon
+          slot="start"
+          size="small"
+          name="{{dayfood.icon}}"
+          color="{{dayfood.color}}"
+        ></ion-icon>
         <ion-buttons>
-
-          <ion-button size="small" fill="default" slot="end"
+          <ion-button
+            size="small"
+            fill="default"
+            slot="end"
             *ngIf="currentDay!=undefined && currentDay.dishes.length>0 && currentDay.dishes[i]!=undefined"
-            (click)="recalculateDish(currentDay.dishes[i].id, i+1)">
-            <ion-icon size="medium" name="repeat-outline" color="secondary"></ion-icon>
+            (click)="recalculateDish(currentDay.dishes[i].id, i+1)"
+          >
+            <ion-icon
+              size="medium"
+              name="repeat-outline"
+              color="secondary"
+            ></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-item>
 
       <ion-accordion value="{{dayfood}}" mode="md">
-
-        <ion-item slot="header" class="card-title-item"
-          *ngIf="currentDay!=undefined && currentDay.dishes.length>0 && currentDay.dishes[i]!=undefined">
+        <ion-item
+          slot="header"
+          class="card-title-item"
+          *ngIf="currentDay!=undefined && currentDay.dishes.length>0 && currentDay.dishes[i]!=undefined"
+        >
           <ion-label>
             <p class="totals-list">
               <span>{{calculateDishCalories(currentDay.dishes[i])}}kcal </span>
@@ -86,7 +133,6 @@
           </ion-button>
         </ion-item>
 
-
         <ion-item class="card-title-item" *ngIf="currentDay==undefined">
           <ion-label>
             <p class="totals-list">
@@ -96,64 +142,87 @@
               <span>G: 0g</span>
             </p>
           </ion-label>
-
         </ion-item>
         <!-- Item -->
         <!-- Multi-line sliding item with icon options on both sides -->
 
-        <ion-list slot="content"
+        <ion-list
+          slot="content"
           *ngIf="currentDay!=undefined && currentDay.dishes.length>0 && currentDay.dishes[i]!=undefined"
-          class="food-list">
-          <ion-item-sliding class="ion-activatable ripple-parent" *ngFor="let item of currentDay.dishes[i].items">
-
-            <ion-item class="food-item" id="item{{item.id}}" (click)="editFoodWeight(item, i, currentDay.dishes[i].id)">
+          class="food-list"
+        >
+          <ion-item-sliding
+            class="ion-activatable ripple-parent"
+            *ngFor="let item of currentDay.dishes[i].items"
+          >
+            <ion-item
+              class="food-item"
+              id="item{{item.id}}"
+              (click)="editFoodWeight(item, i, currentDay.dishes[i].id)"
+            >
               <ion-label>
                 <h3>{{item.food.nombre}}</h3>
-                <p class="units">{{round(item.dosex*item.food.doseg/100*item.food.calories100g)}} Kcal</p>
+                <p class="units">
+                  {{round(item.dosex*item.food.doseg/100*item.food.calories100g)}}
+                  Kcal
+                </p>
               </ion-label>
-              <ion-label slot="end" class="food-quatity">{{item.dosex*item.food.doseg}}g</ion-label>
+              <ion-label slot="end" class="food-quatity"
+                >{{item.dosex*item.food.doseg}}g</ion-label
+              >
 
-              <ion-ripple-effect>
-              </ion-ripple-effect>
+              <ion-ripple-effect> </ion-ripple-effect>
             </ion-item>
 
             <ion-item-options side="end">
-              <ion-item-option color="danger" (click)="deleteItem(item.id)"
-                (click)="PushToDeleteById('item'+item.id, $event.target)">
-                <ion-icon slot="icon-only" name="trash">
-                </ion-icon>
+              <ion-item-option
+                color="danger"
+                (click)="deleteItem(item.id)"
+                (click)="PushToDeleteById('item'+item.id, $event.target)"
+              >
+                <ion-icon slot="icon-only" name="trash"> </ion-icon>
               </ion-item-option>
             </ion-item-options>
           </ion-item-sliding>
 
-
           <ion-item lines="none">
-            <ion-button slot="end" fill="default" color="secondary" size="medium" shape="round"
+            <ion-button
+              slot="end"
+              fill="default"
+              color="secondary"
+              size="medium"
+              shape="round"
               *ngIf="currentDay!=undefined && currentDay.dishes.length>0 && currentDay.dishes[i]!=undefined"
-              (click)="showAddItemModal(i, currentDay.id, currentDay.dishes[i].id)">
-
+              (click)="showAddItemModal(i, currentDay.id, currentDay.dishes[i].id)"
+            >
               <ion-label color="medium">Añadir alimento </ion-label>
-              <ion-icon slot="end" color="secondary" name="add-outline"></ion-icon>
+              <ion-icon
+                slot="end"
+                color="secondary"
+                name="add-outline"
+              ></ion-icon>
             </ion-button>
             <!-- <ion-checkbox color="light" slot="end"></ion-checkbox> -->
           </ion-item>
         </ion-list>
-
       </ion-accordion>
     </ion-accordion-group>
   </ion-list>
 
   <ion-list class="resumen" class="ion-padding">
-
-
-
-    <ion-item lines="none" class="card-title-item" lines="none" class="fooday" shape="round" mode="md">
+    <ion-item
+      lines="none"
+      class="card-title-item"
+      lines="none"
+      class="fooday"
+      shape="round"
+      mode="md"
+    >
       <ion-icon slot="start" color="success" name="stats-chart"></ion-icon>
       <ion-title color="dark" class="ion-text-start">Resúmen</ion-title>
     </ion-item>
 
     <ion-item lines="none">
-
       <ion-label>
         <ion-grid>
           <ion-row>
@@ -164,15 +233,17 @@
             </ion-col>
             <ion-col size="6">
               <p class="totals-day-numbers">
-                {{round(daytotals.calories) || 0}} / {{round(evolution.calreq) || 0}} Kcal</p>
+                {{round(daytotals.calories) || 0}} / {{round(evolution.calreq)
+                || 0}} Kcal
+              </p>
             </ion-col>
           </ion-row>
           <ion-row>
-
-            <ion-progress-bar color="secondary" value="{{daytotals.calories/evolution.calreq}}  ">
+            <ion-progress-bar
+              color="secondary"
+              value="{{daytotals.calories/evolution.calreq}}  "
+            >
             </ion-progress-bar>
-
-
           </ion-row>
           <ion-row>
             <ion-col size="6">
@@ -182,14 +253,17 @@
             </ion-col>
             <ion-col size="6">
               <p class="totals-day-numbers">
-                {{round(daytotals.protein) || 0}} / {{round(evolution.proteinreq) || 0}} g</p>
+                {{round(daytotals.protein) || 0}} /
+                {{round(evolution.proteinreq) || 0}} g
+              </p>
             </ion-col>
           </ion-row>
           <ion-row>
-
-            <ion-progress-bar color="secondary" value="{{daytotals.protein/evolution.proteinreq}}">
+            <ion-progress-bar
+              color="secondary"
+              value="{{daytotals.protein/evolution.proteinreq}}"
+            >
             </ion-progress-bar>
-
           </ion-row>
 
           <ion-row>
@@ -200,14 +274,17 @@
             </ion-col>
             <ion-col size="6">
               <p class="totals-day-numbers">
-                {{round(daytotals.carbs) || 0}} / {{round(evolution.carbreq) || 0}} g</p>
+                {{round(daytotals.carbs) || 0}} / {{round(evolution.carbreq) ||
+                0}} g
+              </p>
             </ion-col>
           </ion-row>
           <ion-row>
-
-            <ion-progress-bar color="secondary" value="{{daytotals.carbs/evolution.carbreq}}">
+            <ion-progress-bar
+              color="secondary"
+              value="{{daytotals.carbs/evolution.carbreq}}"
+            >
             </ion-progress-bar>
-
           </ion-row>
 
           <ion-row>
@@ -218,20 +295,23 @@
             </ion-col>
             <ion-col size="6">
               <p class="totals-day-numbers">
-                {{round(daytotals.fat) || 0}} / {{round(evolution.fatreq) || 0}} g</p>
+                {{round(daytotals.fat) || 0}} / {{round(evolution.fatreq) || 0}}
+                g
+              </p>
             </ion-col>
           </ion-row>
           <ion-row>
-
-            <ion-progress-bar color="secondary" value="{{daytotals.fat/evolution.fatreq}}">
+            <ion-progress-bar
+              color="secondary"
+              value="{{daytotals.fat/evolution.fatreq}}"
+            >
             </ion-progress-bar>
-
           </ion-row>
 
           <ion-row>
             <ion-col>
               <ion-label>
-                <p>Grasa saturada {{daytotals.saturatedFat || 0}} g </p>
+                <p>Grasa saturada {{daytotals.saturatedFat || 0}} g</p>
               </ion-label>
             </ion-col>
           </ion-row>
@@ -262,9 +342,5 @@
         </ion-grid>
       </ion-label>
     </ion-item>
-
-
-
-
   </ion-list>
 </ion-content>

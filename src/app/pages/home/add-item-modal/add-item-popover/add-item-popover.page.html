@@ -5,42 +5,81 @@
     </ion-text>
     <ion-buttons slot="start">
       <ion-button icon-only (click)="closePopover(false)" fill="default">
-        <ion-icon  ios="chevron-back" md="close-outline" size="small" color="dark">
-          </ion-icon>
+        <ion-icon
+          ios="chevron-back"
+          md="close-outline"
+          size="small"
+          color="dark"
+        >
+        </ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
-
-
 <ion-content *ngIf="food" class="ion-padding">
   <ion-item>
-    <ion-label position="floating" color="medium" >Ración (gramos)</ion-label>
-    <ion-input type="number"  min="0" (change)="setDose(this.doseInput)" (keyup)="setDose(this.doseInput)" value="{{dosex*food.doseg || undefined}}" #doseInput placeholder="g"></ion-input>
+    <ion-label position="floating" color="medium">Ración (gramos)</ion-label>
+    <ion-input
+      type="number"
+      min="0"
+      (change)="setDose(this.doseInput)"
+      (keyup)="setDose(this.doseInput)"
+      value="{{dosex*food.doseg || undefined}}"
+      #doseInput
+      placeholder="g"
+    ></ion-input>
   </ion-item>
 
-      <ion-button class="big-buttons" color="secondary" id="validateButton" size="medium" (click)="closePopover(true)" expand="full" shape="round">
-        <ion-label color="light">Guardar </ion-label>
-        <ion-icon color="light" name="checkmark-done" size="medium"></ion-icon>
-      </ion-button>
+  <ion-button
+    class="big-buttons"
+    color="secondary"
+    id="validateButton"
+    size="medium"
+    (click)="closePopover(true)"
+    expand="full"
+    shape="round"
+  >
+    <ion-label color="light">Guardar </ion-label>
+    <ion-icon color="light" name="checkmark-done" size="medium"></ion-icon>
+  </ion-button>
 
   <section>
     <ion-item>
       <ion-grid>
         <ion-row>
-      <ion-text *ngIf="food">
-        <div class="ion-text-capitalize">{{food.nombre}}</div>
-      </ion-text>
+          <ion-text *ngIf="food">
+            <div class="ion-text-capitalize">{{food.nombre}}</div>
+          </ion-text>
         </ion-row>
         <ion-row>
-          <ion-col><ion-text class="ion-text-center"><p>Kcal</p><p>{{(dose*food.calories100g/100).toFixed(1) || 0}} </p></ion-text></ion-col>
-          <ion-col><ion-text class="ion-text-center"><p>Proteína</p><p>{{(dose*food.protein100g/100).toFixed(1) || 0}} g </p></ion-text></ion-col>
+          <ion-col
+            ><ion-text class="ion-text-center"
+              ><p>Kcal</p>
+              <p>{{(dose*food.calories100g/100).toFixed(1) || 0}}</p></ion-text
+            ></ion-col
+          >
+          <ion-col
+            ><ion-text class="ion-text-center"
+              ><p>Proteína</p>
+              <p>{{(dose*food.protein100g/100).toFixed(1) || 0}} g</p></ion-text
+            ></ion-col
+          >
         </ion-row>
         <ion-row>
-          <ion-col><ion-text class="ion-text-center"><p></p>Carbohidratos<p>{{(dose*food.carbs100g/100).toFixed(1) || 0}} g </p></ion-text></ion-col>
-          <ion-col><ion-text class="ion-text-center"><p>Grasas</p><p>{{(dose*food.fat100g/100).toFixed(1) || 0}} g </p></ion-text></ion-col>
+          <ion-col
+            ><ion-text class="ion-text-center"
+              ><p></p>
+              Carbohidratos
+              <p>{{(dose*food.carbs100g/100).toFixed(1) || 0}} g</p></ion-text
+            ></ion-col
+          >
+          <ion-col
+            ><ion-text class="ion-text-center"
+              ><p>Grasas</p>
+              <p>{{(dose*food.fat100g/100).toFixed(1) || 0}} g</p></ion-text
+            ></ion-col
+          >
         </ion-row>
       </ion-grid>
     </ion-item>
@@ -48,7 +87,9 @@
     <table class="item-info">
       <tr class="border-none">
         <th colspan="3">
-          <h3 class="ion-text-capitalize ion-text-center">Información nutricional</h3>
+          <h3 class="ion-text-capitalize ion-text-center">
+            Información nutricional
+          </h3>
         </th>
       </tr>
       <tr class="border-none">
@@ -67,7 +108,9 @@
           <p class="ion-text-start"><b>Calorias</b></p>
         </td>
         <td class="values">
-          <p class="ion-text-end"><b>{{(dose*food.calories100g/100).toFixed(1) || 0}} kcal</b></p>
+          <p class="ion-text-end">
+            <b>{{(dose*food.calories100g/100).toFixed(1) || 0}} kcal</b>
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end"><b>{{food.calories100g}} kcal</b></p>
@@ -78,30 +121,36 @@
           <p class="ion-text-start"><b>Carbohidratos</b></p>
         </td>
         <td class="values">
-          <p class="ion-text-end"><b>{{(dose*food.carbs100g/100).toFixed(1) || 0}} g</b></p>
+          <p class="ion-text-end">
+            <b>{{(dose*food.carbs100g/100).toFixed(1) || 0}} g</b>
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end"><b>{{food.carbs100g}} g</b></p>
         </td>
       </tr>
+      <tr></tr>
       <tr>
-        <tr>
-          <td>
-            <p class="ion-text-start">Azúcar</p>
-          </td>
-          <td class="values">
-            <p class="ion-text-end">{{(dose*food.sugar100g).toFixed(1) || 0}} g</p>
-          </td>
-          <td class="values">
-            <p class="ion-text-end">{{food.sugar100g}} g</p>
-          </td>
-        </tr>
-        <tr>
+        <td>
+          <p class="ion-text-start">Azúcar</p>
+        </td>
+        <td class="values">
+          <p class="ion-text-end">
+            {{(dose*food.sugar100g).toFixed(1) || 0}} g
+          </p>
+        </td>
+        <td class="values">
+          <p class="ion-text-end">{{food.sugar100g}} g</p>
+        </td>
+      </tr>
+      <tr>
         <td>
           <p class="ion-text-start"><b>Proteína</b></p>
         </td>
         <td class="values">
-          <p class="ion-text-end"><b>{{(dose*food.protein100g/100).toFixed(1) || 0}} g</b></p>
+          <p class="ion-text-end">
+            <b>{{(dose*food.protein100g/100).toFixed(1) || 0}} g</b>
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end"><b>{{food.protein100g}} g</b></p>
@@ -112,7 +161,9 @@
           <p class="ion-text-start"><b>Grasas</b></p>
         </td>
         <td class="values">
-          <p class="ion-text-end"><b>{{(dose*food.fat100g/100).toFixed(1) || 0}} g</b></p>
+          <p class="ion-text-end">
+            <b>{{(dose*food.fat100g/100).toFixed(1) || 0}} g</b>
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end"><b>{{food.fat100g}} g</b></p>
@@ -123,7 +174,9 @@
           <p class="ion-text-start">Grasas Saturadas</p>
         </td>
         <td class="values">
-          <p class="ion-text-end">{{(dose*food.saturatedfat100g).toFixed(1) || 0}}</p>
+          <p class="ion-text-end">
+            {{(dose*food.saturatedfat100g).toFixed(1) || 0}}
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end">{{food.saturatedfat100g}} g</p>
@@ -134,7 +187,9 @@
           <p class="ion-text-start">Fibra</p>
         </td>
         <td class="values">
-          <p class="ion-text-end">{{(dose*food.fiber100g).toFixed(1) || 0}} g</p>
+          <p class="ion-text-end">
+            {{(dose*food.fiber100g).toFixed(1) || 0}} g
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end">{{food.fiber100g}} g</p>
@@ -145,7 +200,9 @@
           <p class="ion-text-start">Sal</p>
         </td>
         <td class="values">
-          <p class="ion-text-end">{{(dose*food.salt100g).toFixed(2) || 0}} mg</p>
+          <p class="ion-text-end">
+            {{(dose*food.salt100g).toFixed(2) || 0}} mg
+          </p>
         </td>
         <td class="values">
           <p class="ion-text-end">{{food.salt100g}} mg</p>

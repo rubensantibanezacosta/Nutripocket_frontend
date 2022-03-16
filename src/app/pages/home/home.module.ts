@@ -8,7 +8,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HammerModule } from '@angular/platform-browser';
 import { ComponentModule } from 'src/app/components/component/component.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +17,6 @@ import { ComponentModule } from 'src/app/components/component/component.module';
     ComponentModule,
     HammerModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}

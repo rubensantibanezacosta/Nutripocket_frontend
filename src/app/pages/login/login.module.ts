@@ -17,6 +17,6 @@ import { LoginPage } from './login.page';
     LoginPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage],
 })
 export class LoginPageModule {}

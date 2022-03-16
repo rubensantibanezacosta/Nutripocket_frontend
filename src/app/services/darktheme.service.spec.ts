@@ -10,7 +10,17 @@ describe('DarkthemeService', () => {
     service = TestBed.inject(DarkthemeService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  /*   it('should be created', () => {
+      expect(service).toBeTruthy();
+    }); */
+
+  fit("tiene que devolver el string dark", () => {
+    service.setDarkMode("dark").then(() => {
+      service.getDarkMode().then((data) => {
+        expect(data).toBe("dark");
+      })
+
+    })
+  })
+})
+

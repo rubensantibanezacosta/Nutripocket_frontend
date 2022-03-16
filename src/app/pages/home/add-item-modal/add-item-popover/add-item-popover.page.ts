@@ -21,17 +21,14 @@ export class AddItemPopoverPage {
     private modalController: ModalController,
     private foodService: FoodService,
     private itemService: ItemService,
-    private navParams: NavParams) {
-    
+    private navParams: NavParams
+  ) {
     this.dayfood = this.navParams.data.dayfood;
     this.dishid = this.navParams.data.dishid;
     this.foodid = this.navParams.data.foodid;
     this.dosex = this.navParams.data.dosex;
-    console.log( this.dayfood,
-      this.dishid,
-      this.foodid,
-      this.dosex,)
-    this.getFoodData()
+    console.log(this.dayfood, this.dishid, this.foodid, this.dosex);
+    this.getFoodData();
   }
 
   closePopover(bool) {
@@ -42,27 +39,22 @@ export class AddItemPopoverPage {
       return this.modalController.dismiss(item);
     }
     return this.modalController.dismiss();
-
   }
-
 
   async getFoodData() {
     return this.foodService.getFoodById(this.foodid).subscribe((food) => {
-      this.dosex ? this.dose = food.doseg * this.dosex || 0 : null;
+      this.dosex ? (this.dose = food.doseg * this.dosex || 0) : null;
       this.food = food;
-    })
+    });
   }
 
   setDose(dose: any) {
     if (dose.value > 0) {
       this.dose = parseInt(dose.value);
-
-
     } else {
       this.dose = 0;
     }
   }
-
 }
 /* id
 dosex

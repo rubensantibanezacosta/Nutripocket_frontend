@@ -16,6 +16,6 @@ import { AddNewFoodPage } from './add-new-food.page';
     AddNewFoodPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [AddNewFoodPage]
+  declarations: [AddNewFoodPage],
 })
 export class AddNewFoodPageModule {}

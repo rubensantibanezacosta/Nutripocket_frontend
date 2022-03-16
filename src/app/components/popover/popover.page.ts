@@ -7,12 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./popover.page.scss'],
 })
 export class PopoverPage {
-  message:string;
-  constructor(private popoverController:PopoverController, private navParams:NavParams) {
-    this.message=this.navParams.data.message;
-}
+  message: string;
+  constructor(
+    private popoverController: PopoverController,
+    private navParams: NavParams
+  ) {
+    this.message = this.navParams.data.message;
+  }
 
-closePopover(option:boolean){
-    option?this.popoverController.dismiss(true):this.popoverController.dismiss(false);
-}
+  closePopover(option: boolean) {
+    option
+      ? this.popoverController.dismiss(true)
+      : this.popoverController.dismiss(false);
+  }
 }

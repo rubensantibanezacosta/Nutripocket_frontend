@@ -1,8 +1,8 @@
-import { Dayfood } from "./dayfood";
+import { Dayfood } from './dayfood';
 
 export class Recipe {
-    id: number;
-    type: number;
-    foodofday: number;
-    dayfood:Dayfood;
+  id: number;
+  type: number;
+  foodofday: number;
+  dayfood: Dayfood;
 }

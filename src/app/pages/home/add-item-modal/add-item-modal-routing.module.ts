@@ -6,8 +6,8 @@ import { AddItemModalPage } from './add-item-modal.page';
 const routes: Routes = [
   {
     path: '',
-    component: AddItemModalPage
-  }
+    component: AddItemModalPage,
+  },
 ];
 
 @NgModule({
